@@ -1,0 +1,60 @@
+---
+import "../../styles/global.css";
+import Layout from "../../layouts/Layout.astro";
+import arrowNextRight from "../../assets/arrow_next_right.svg";
+
+const buttonClass =
+  "text-[#C10230] bg-white border-[#C10230] border-solid border-2 px-4 py-2 rounded-md flex cursor-pointer flex";
+const inputClass =
+  "bg-white text-black rounded-md p-2 w-md focus:outline-none focus:ring-2 focus:ring-[#C10230]";
+---
+
+<Layout>
+  <section
+    class="h-fit md:w-svw lg:w-max min-h-[100vh] text-white flex flex-wrap justify-self-center-safe flex-col mt-16">
+    <div id="container" class="flex flex-col items-center justify-center gap-5 rounded-sm bg-[#C10230] self-center w-shw px-5 pt-4 pb-8">
+        <div class="font-bold text-3xl flex pb-3">
+            <h1>Inicio de Sesión</h1>
+        </div>
+        <div id="register-form" class="flex flex-col gap-5">
+            <form action="" autocomplete="on" method="post">
+                <div class="flex flex-col gap-2 mb-4 px-5">
+                    <label class="text-base font-medium" for="email"
+                    >Correo Electrónico</label
+                    >
+                    <input
+                    type="email"
+                    maxlength="70"
+                    id="email"
+                    name="email"
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                    class={inputClass}
+                    required
+                    />
+                </div>
+                <div class="flex flex-col gap-2 mb-4 px-5">
+                    <label class="text-base font-medium" for="password">Contraseña</label>
+                    <input
+                    type="password"
+                    maxlength="30"
+                    id="password"
+                    name="password"
+                    class={inputClass}
+                    required
+                    />
+                </div>
+                <div class="flex justify-center mt-5 pt-2">
+                    <button class={buttonClass} type="submit"
+                    >Iniciar Sesión
+                    <img
+                    src={arrowNextRight.src}
+                    class="size-7 align-middle pl-2"
+                    alt=""
+                    />
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+  </section>
+</Layout>

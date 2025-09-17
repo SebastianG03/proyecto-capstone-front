@@ -1,0 +1,32 @@
+---
+import "../../styles/global.css";
+import { navbarLinks } from "../../consts/navbar-links"
+import LogoUdla from "../../assets/logo_udla_corto.png"
+
+ const links  = navbarLinks;
+ const activeClassLink = "text-white border-b-2 border-white pb-1";
+ const inactiveClassLink = "text-white/75 hover:text-white hover:border-b-2 hover"
+
+---
+<section class="w-full relative top-0 right-0 left-0">
+  <nav class="bg-[#C10230] px-1 py-4 flex  w-full">
+    <div class="flex justify-start ml-10">
+      <a href="/" class="flex items-center no-underline">
+        <img src={LogoUdla.src} alt="Logo UDLA" class="h-8" />
+      </a>
+    </div>
+    <div class="flex flex-grow justify-center mr-10">
+      <ul class="flex gap-5 list-none m-0 p-0">
+        {
+          links.map((link) => (
+            <li>
+              <a href={link.href} class={`text-white no-underline text-base px-3 pb-1 ${link.active ? activeClassLink : inactiveClassLink}`}>
+                {link.name}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </nav>
+</section>
