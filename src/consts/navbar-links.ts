@@ -1,9 +1,9 @@
-import type { Link } from "../interfaces/link.interface";
+import type { Link } from "@interfaces/link.interface";
 
 export const navbarLinks: Link[] = [
-  { name: "Inicio", href: "/", active: true },
-  { name: "Estadísticas", href: "/jugadores/estadisticas", active: false },
-  { name: "Herramienta", href: "/jugadores/analisis-video", active: false },
+  { name: "Inicio", href: "/" },
+  { name: "Estadísticas", href: "/jugadores/estadisticas" },
+  { name: "Herramienta", href: "/jugadores/analisis-video" }
 ];
 
 export const ejemplosPartidos = [

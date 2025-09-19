@@ -1,7 +1,8 @@
 ---
-import "../styles/global.css"
-import Navbar from "../components/shared/Navbar.astro"
-import Footer from "../components/shared/Footer.astro"
+import "@styles/global.css"
+import Navbar from "@components/shared/Navbar.astro"
+import Footer from "@components/shared/Footer.astro"
+import { ClientRouter } from "astro:transitions";
 ---
 
 <!doctype html>
@@ -12,10 +13,13 @@ import Footer from "../components/shared/Footer.astro"
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro Basics</title>
+		<ClientRouter/>
 	</head>
 	<body class="min-h-full w-full h-full min-w-full">
 		<Navbar />
-		<slot />
+		<main>
+			<slot />
+		</main>
 		<Footer />
 	</body>
 </html>

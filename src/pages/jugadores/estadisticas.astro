@@ -1,7 +1,56 @@
 ---
-import Layout from "../../layouts/Layout.astro"
+import "@styles/global.css";
+import Layout from "@layouts/Layout.astro";
+import SmallStatsCard from "@components/cards/SmallStatsCard.astro";
+import NotFoundImage from "@assets/not_found.svg";
+
+const inactiveButtonClass =
+  "text-[#C10230] bg-white border-[#C10230] border-solid border-2 px-4 py-2 rounded-md flex cursor-pointer";
+const activeButtonClass =
+  "text-white bg-[#C10230] px-4 py-2 rounded-md flex cursor-pointer";
 ---
 
 <Layout>
-    
+  <section
+    class="h-fit md:w-svw lg:w-shw w-shw min-h-[100vh] flex flex-wrap justify-self-center-safe mt-5 flex-col scroll-auto overflow-auto"
+  >
+    <div class="flex flex-col flex-wrap items-center justify-center gap-4">
+      <h1 class="font-bold text-3xl flex pb-2 flex-col text-center">
+        Estadísticas
+      </h1>
+      <div class="flex flex-row gap-4">
+        <button id="btn-jugador" class={inactiveButtonClass}> Jugador </button>
+        <button id="btn-partidos" class={inactiveButtonClass}> Partidos </button>
+      </div>
+    </div>
+    <div
+      id="filters"
+      class="flex flex-row flex-wrap align-middle justify-center mt-5 gap-2"
+    >
+      <span class="text-base font-semibold align-middle self-center"
+        >Buscar:</span
+      >
+      <input
+        type="text"
+        placeholder=""
+        class="mx-2 my-1 p-2 w-1/6 rounded-md align-middle border-solid border border-black"
+      />
+    </div>
+    <div
+      id="stats-cards"
+      class="flex flex-row flex-wrap justify-start items-center gap-5 mx-5 mt-10"
+    >
+      {
+        [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((_, index) => (
+          <SmallStatsCard
+            href="/"
+            imgSrc={NotFoundImage.src}
+            title="Estadística"
+            subtitle="Descripción"
+          />
+        ))
+      }
+    </div>
+    <div id="navigation"></div>
+  </section>
 </Layout>
