@@ -1,0 +1,52 @@
+---
+import "@styles/global.css";
+import type { Player } from "@interfaces/player.interface";
+import CardDetail from "@components/cards/CardDetail.astro";
+import OutlinedButton from "@components/buttons/OutlinedButton.astro";
+
+interface Props {
+  player: Player;
+}
+
+const { player } = Astro.props;
+---
+
+<div
+  id="card-container"
+  class="bg-[#C10230] text-white rounded-sm shadow-lg px-5 py-3 flex items-center gap-2 h-fit w-full"
+>
+  <div id="card-content" class="flex flex-row gap-5 w-full h-full">
+    <div id="card-image">
+      <img
+        src="${player.playerImageUrl}"
+        class="flex self-center flex-wrap w-fit h-fit p-5 object-cover bg-white"
+      />
+    </div>
+    <div
+      id="card-details"
+      class="grid grid-cols-3 gap-5 w-max h-fit p-5 bg-white text-black"
+    >
+      <CardDetail title="Posición" detail={player.position} />
+      <CardDetail title="Equipo" detail={player.team} />
+      <CardDetail title="Número de camiseta" detail={player.shirtNumber} />
+      <CardDetail title="Minutos jugados" detail={player.minutesPlayed} />
+      <CardDetail title="Número de goles" detail={player.goalsNumber} />
+      <CardDetail title="Promedio de goles" detail={player.goalAverage} />
+      <CardDetail
+        title="Porcentaje de tiros a puerta"
+        detail={player.soccerGoalShotsPercentage}
+      />
+      <CardDetail title="Tiros a puerta" detail={player.soccerGoalShots} />
+      <CardDetail title="Número de tiros" detail={player.shotsNumber} />
+      <CardDetail
+        title="Distancia recorrida (m)"
+        detail={player.coveredDistance}
+      />
+      <div class="p-5 w-fit h-fit">
+          <OutlinedButton  
+          href={`/jugadores/jugador/heatmap`} 
+          label="Mapa de Calor"/>
+      </div>
+    </div>
+  </div>
+</div>

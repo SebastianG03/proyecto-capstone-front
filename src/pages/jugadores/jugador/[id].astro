@@ -1,0 +1,48 @@
+---
+import type { GetStaticPaths } from "astro";
+import Layout from "@layouts/Layout.astro"
+import "@styles/global.css";
+import LargeStatsCard from "@components/cards/LargeStatsCard.astro";
+import type { Player } from "@interfaces/player.interface";
+import NotFoundImage from "@assets/not_found.svg"
+
+const player = {
+  id: 1,
+  name: "Lionel",
+  lastname: "Messi",
+  position: "Delantero",
+  team: "Paris Saint-Germain",
+  shirtNumber: 30,
+  minutesPlayed: 2700,
+  goalsNumber: 30,
+  goalAverage: 0.5,
+  soccerGoalShotsPercentage: 0.75,
+  soccerGoalShots: 22,
+  shotsNumber: 40,
+  coveredDistance: 30000,
+  playerImageUrl: NotFoundImage.src,
+  heatmapUrl: NotFoundImage.src,
+};
+
+export const getStaticPaths = (() => {
+    return [
+        { params: { id: '1' } },
+        { params: { id: '2' } },
+        { params: { id: '3' } },
+    ];
+}) satisfies GetStaticPaths;
+
+---
+
+<Layout>    
+    <section class="flex flex-col mx-5 my-7 justify-start items-center h-svh w-full">
+        <div>
+    <div id="title" class="flex">
+      <h1 class="text-3xl font-bold">Estadísticas de { `${player.name} ${player.lastname}` }</h1>
+    </div>
+    <div>
+      <LargeStatsCard player={player} />
+    </div>
+</div>
+</section>
+</Layout>

@@ -1,0 +1,31 @@
+---
+import type { GetStaticPaths } from "astro";
+import "@styles/global.css";
+import NotFoundImage from "@assets/not_found.svg";
+import { Image } from "astro:assets";
+
+interface Props {
+    heatmap: string;
+}
+
+export const getStaticPaths = (() => {
+    return [{
+        params: { heatmap: 'url/to/heatmap' }
+    }];
+}) satisfies GetStaticPaths;
+---
+
+<section class="flex flex-col m-5 justify-center items-center-safe gap-5">
+    <div>
+        <div id="title" class="flex">
+            <h1 class="text-3xl font-bold">Mapa de Calor</h1>
+        </div>
+        <div>
+            <Image 
+            src={NotFoundImage} 
+            sizes={"(max-width: 640px) 100vw, 640px"}
+            alt="Mapa de Calor" />
+        </div>
+    </div>
+
+</section>
