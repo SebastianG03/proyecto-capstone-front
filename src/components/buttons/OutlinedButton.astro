@@ -6,14 +6,15 @@ interface Props {
   href?: string;
   iconSrc?: string;
   iconPosition?: "left" | "right";
+  className?: string;
 }
 
-const { label, iconSrc, href, iconPosition } = Astro.props;
+const { label, iconSrc, href, iconPosition, className } = Astro.props;
 ---
 
 <a
   href={href ? href : ""}
-  class="text-[#C10230] bg-white border-[#C10230] border-solid border-2 px-4 py-2 rounded-md flex cursor-pointer"
+  class={`text-[#C10230] bg-white border-[#C10230] border-solid border-2 px-4 py-2 rounded-md flex cursor-pointer ${className}`}
 >
   {label}
   {

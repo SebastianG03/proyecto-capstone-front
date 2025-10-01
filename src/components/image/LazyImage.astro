@@ -1,0 +1,36 @@
+---
+import "@styles/global.css";
+import { Image } from "astro:assets";
+import ImageNotFound from "@assets/not_found.svg";
+
+interface Props {
+  src?: string;
+  alt?: string;
+  width: number;
+  height: number;
+  className?: string;
+}
+
+const { src, alt, width, height, className } = Astro.props;
+---
+
+<div class={className}>
+  {
+    !src ? (
+      <Image
+        src={ImageNotFound}
+        alt="Image not found"
+        width={width}
+        height={height}
+        class={className}
+      />
+    ) : (
+      <Image
+        src={src}
+        alt={alt || "Image"}
+        width={width}
+        height={height}
+      />
+    )
+  }
+</div>

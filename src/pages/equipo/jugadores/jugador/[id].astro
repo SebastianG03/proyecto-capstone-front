@@ -35,12 +35,12 @@ export const getStaticPaths = (() => {
 ---
 
 <Layout>    
-    <section class="flex flex-col mx-5 my-7 justify-start items-center h-svh w-full">
+    <section class="flex flex-col mx-5 my-10 justify-start items-center h-svh w-full">
         <div>
     <div id="title" class="flex">
       <h1 class="text-3xl font-bold">Estadísticas de { `${player.name} ${player.lastname}` }</h1>
     </div>
-    <div>
+    <div class="my-3">
       <LargeStatsCard player={player} />
     </div>
 </div>

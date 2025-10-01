@@ -4,6 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 import solidJs from "@astrojs/solid-js";
 
+import netlify from "@astrojs/netlify";
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -11,4 +13,6 @@ export default defineConfig({
   },
 
   integrations: [solidJs()],
+  output: 'static',
+  adapter: netlify()
 });

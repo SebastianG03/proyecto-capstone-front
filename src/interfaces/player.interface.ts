@@ -12,6 +12,6 @@ export interface Player {
     soccerGoalShots: number,
     shotsNumber: number,
     coveredDistance: number,
-    playerImageUrl: string,
+    playerImageUrl: string ,
     heatmapUrl: string
 }

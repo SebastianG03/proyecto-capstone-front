@@ -3,6 +3,8 @@ import "@styles/global.css";
 import type { Player } from "@interfaces/player.interface";
 import CardDetail from "@components/cards/CardDetail.astro";
 import OutlinedButton from "@components/buttons/OutlinedButton.astro";
+import CardContainer from "./CardContainer.astro";
+import LazyImage from "@components/image/LazyImage.astro";
 
 interface Props {
   player: Player;
@@ -11,20 +13,16 @@ interface Props {
 const { player } = Astro.props;
 ---
 
-<div
-  id="card-container"
-  class="bg-[#C10230] text-white rounded-sm shadow-lg px-5 py-3 flex items-center gap-2 h-fit w-full"
->
-  <div id="card-content" class="flex flex-row gap-5 w-full h-full">
-    <div id="card-image">
-      <img
-        src="${player.playerImageUrl}"
-        class="flex self-center flex-wrap w-fit h-fit p-5 object-cover bg-white"
-      />
-    </div>
+<CardContainer sizes="h-fit w-full">
+  <div id="card-image" class="w-fit h-fit self-center rounded-sm bg-white">
+    <LazyImage  
+    height={200}
+    width={200}
+    className="flex self-center flex-wrap p-5 object-cover" />
+  </div>
     <div
       id="card-details"
-      class="grid grid-cols-3 gap-5 w-max h-fit p-5 bg-white text-black"
+      class="grid grid-cols-3 gap-5 w-max h-fit p-5 bg-white text-black rounded-sm"
     >
       <CardDetail title="Posición" detail={player.position} />
       <CardDetail title="Equipo" detail={player.team} />
@@ -48,5 +46,4 @@ const { player } = Astro.props;
           label="Mapa de Calor"/>
       </div>
     </div>
-  </div>
-</div>
+</CardContainer>
