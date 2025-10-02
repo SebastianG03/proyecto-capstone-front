@@ -1,6 +1,13 @@
-import { o as objectType, n as numberType, s as stringType } from './chunks/astro/server_C7cvheQj.mjs';
-import { g as getActionQueryString, a as astroCalledServerError, A as ActionError, d as deserializeActionResult, b as ACTION_QUERY_PARAMS, c as appendForwardSlash } from './chunks/index_BNjlPf_e.mjs';
-import { d as defineAction } from './chunks/server_Bu-p__Mh.mjs';
+import '@astrojs/internal-helpers/path';
+import 'kleur/colors';
+import { g as getActionQueryString, a as astroCalledServerError, A as ActionError, d as deserializeActionResult, b as ACTION_QUERY_PARAMS, c as appendForwardSlash } from './chunks/shared_BUOCdneT.mjs';
+import 'es-module-lexer';
+import './chunks/astro/server_CmOtYyKb.mjs';
+import 'clsx';
+import 'cookie';
+import 'html-escaper';
+import * as z from 'zod';
+import { d as defineAction } from './chunks/server_Bwshn84F.mjs';
 
 const apiContextRoutesSymbol = Symbol.for("context.routes");
 const ENCODED_DOT = "%2E";
@@ -104,9 +111,9 @@ toActionProxy();
 
 const server = {
   myAction: defineAction({
-    input: objectType({
-      name: stringType(),
-      age: numberType().min(0).optional()
+    input: z.object({
+      name: z.string(),
+      age: z.number().min(0).optional()
     }),
     handler: async (input) => {
       return { message: `Hello, ${input.name}!` };
